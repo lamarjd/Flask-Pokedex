@@ -10,6 +10,23 @@ def index():
   return "<h1>Some Pokemon </h1>"
 
 
-@bp.route('/<int:id>')
-def main():
-  return "<h1>hello</h1>"
+@bp.route('/<int:id>', methods=["GET", "PUT"])
+def main(id):
+
+  return f"<h1>Hello number {id}</h1>"
+
+@bp.route("/<int:id>/items", methods=["GET", "POST"])
+def items(id):
+  return f"This boy number {id} got some items"
+
+@bp.route("/types")
+def types():
+  return "<h1>GOT DEM TYPES</h1>"
+
+@bp.route("/random")
+def random():
+  return "<h1>Holy shit that's so random</h1>"
+
+@bp.route("/battle")
+def battle():
+  return "<h1> IT'S TIME TO DUEL BITCH</h1>"
