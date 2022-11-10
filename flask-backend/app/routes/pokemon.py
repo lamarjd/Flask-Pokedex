@@ -7,12 +7,16 @@ bp = Blueprint('pokemon', __name__, url_prefix="/pokemon")
 
 @bp.route('/', methods=["GET", "POST"])
 def index():
+  # all_pokemon = Pokemon.query.all()
+  # return pokemon
   return "<h1>Some Pokemon </h1>"
 
 
 @bp.route('/<int:id>', methods=["GET", "PUT"])
 def main(id):
-
+  ###
+  # GET QUERY pokomen = Pokemon.query.get(id)
+  #  PUT, query pokemon, do some shit, return
   return f"<h1>Hello number {id}</h1>"
 
 @bp.route("/<int:id>/items", methods=["GET", "POST"])
