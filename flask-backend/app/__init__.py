@@ -1,6 +1,10 @@
-
+from flask import Flask
+import os
+from app.config import Configuration
 # import statement for CSRF
 from flask_wtf.csrf import CSRFProtect, generate_csrf
+
+app = Flask(__name__)
 
 
 
