@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_login import LoginManager
+from flask_migrate import Migrate
 
 from app.routes import items, pokemon
 import os
@@ -7,10 +8,17 @@ from app.config import Configuration
 # import statement for CSRF
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 
+# model crap
+from .models import db, Pokemon, Item
+
+
+
 app = Flask(__name__)
 app.config.from_object(Configuration)
 app.register_blueprint(items.bp)
 app.register_blueprint(pokemon.bp)
+migrate = Migrate(app,db)
+db.init_app(app)
 
 
 @app.route("/")
