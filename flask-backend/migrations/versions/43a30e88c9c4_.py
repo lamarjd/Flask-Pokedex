@@ -30,8 +30,8 @@ def upgrade():
     sa.Column('encounterRate', sa.Float(), nullable=False),
     sa.Column('catchRate', sa.Float(), nullable=False),
     sa.Column('captured', sa.Boolean(), nullable=False),
-    sa.Column('createdAt', sa.DateTime(), nullable=False),
-    sa.Column('updatedAt', sa.DateTime(), nullable=False),
+    sa.Column('createdAt', sa.DateTime()),
+    sa.Column('updatedAt', sa.DateTime()),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('name'),
     sa.UniqueConstraint('number')

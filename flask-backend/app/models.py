@@ -20,8 +20,8 @@ class Pokemon(db.Model):
     encounterRate = db.Column(db.Float, default=1.00, nullable=False)
     catchRate = db.Column(db.Float, default=1.00, nullable=False)
     captured = db.Column(db.Boolean, nullable=False)
-    createdAt = db.Column(db.DateTime, nullable=False)
-    updatedAt = db.Column(db.DateTime, nullable=False)
+    createdAt = db.Column(db.DateTime)
+    updatedAt = db.Column(db.DateTime)
 
 class Item(db.Model):
     __tablename__ = 'items'
