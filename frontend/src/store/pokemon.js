@@ -22,7 +22,7 @@ const addOnePokemon = pokemon => ({
 
 export const getPokemon = () => async dispatch => {
   const response = await fetch(`/api/pokemon`);
-
+  console.log("i am in thunkville")
   if (response.ok) {
     const list = await response.json();
     dispatch(load(list));

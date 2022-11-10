@@ -1,16 +1,32 @@
-from flask import Blueprint, redirect, render_template, url_for
+from flask import Blueprint, redirect, render_template, url_for, jsonify
 from flask_login import current_user, login_required
-# from app.forms import PokemonForm
+
+from app.models import Pokemon
 
 
 
-bp = Blueprint('pokemon', __name__, url_prefix="/pokemon")
+bp = Blueprint('pokemon', __name__, url_prefix="/api")
 
-@bp.route('/', methods=["GET", "POST"])
+@bp.route('/pokemon', methods=["GET", "POST"])
 def index():
-  # all_pokemon = Pokemon.query.all()
-  # return pokemon
-  return "<h1>Some Pokemon </h1>"
+  list = Pokemon.query.all()
+  print(list)
+  dict = [i.__dict__ for i in list]
+  for i in dict:
+    del i['_sa_instance_state']
+
+  return jsonify(dict)
+  
+  
+
+  
+
+
+
+
+
+
+
 
 
 @bp.route('/<int:id>', methods=["GET", "PUT"])
